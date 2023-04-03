@@ -1,3 +1,4 @@
+import 'package:eos_chatting/chatting/chat/chat_bubble.dart';
 import 'package:flutter/material.dart';
 import '../config/palette.dart';
 
@@ -334,28 +335,38 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      child: Container(
+                      child : GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ChatScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
                           decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  colors: [Colors.lightGreen, Colors.green],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight
-                              ),
-                              borderRadius: BorderRadius.circular(30),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.3),
-                                  spreadRadius: 1,
-                                  blurRadius: 1,
-                                  offset: Offset(0, 1),
-                                )
-                              ]
+                            gradient: LinearGradient(
+                              colors: [Colors.lightGreen, Colors.green],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.3),
+                                spreadRadius: 1,
+                                blurRadius: 1,
+                                offset: Offset(0, 1),
+                              )
+                            ],
                           ),
                           child: Icon(
                             Icons.arrow_forward,
                             color: Colors.white,
-                          )
-                      )
+                          ),
+                        ),
+                      ),
                   )
               )
           ),
